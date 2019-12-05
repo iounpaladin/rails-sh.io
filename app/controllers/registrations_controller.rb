@@ -7,6 +7,8 @@ class RegistrationsController < ApplicationController
 
   def create 
     user = User.new(user_params)
+    user.elo = 1600
+    user.role = ""
     if user.save
       session[:user_id] = user.id
       redirect_to chatrooms_path

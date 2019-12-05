@@ -11,6 +11,12 @@
           <%= f.text_field :username, class: "form-control"%>
       </div>
 
+        Please note that the password is not currently hashed. Use at your own risk. <br>
+        <%=f.label :password%>
+        <div class="input-group">
+          <%= f.password_field :password, class: "form-control"%>
+        </div>
+
       <div class="actions">
         <%= f.submit "sign up", class: "btn btn-primary" %>
       </div>

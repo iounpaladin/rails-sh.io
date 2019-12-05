@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  libswon: false
+  winmethod: MyString
+  playercount: 1
+  players: MyText
+  turns: MyText
+
+two:
+  title: MyString
+  libswon: false
+  winmethod: MyString
+  playercount: 1
+  players: MyText
+  turns: MyText

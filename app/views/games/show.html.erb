@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @game.title %>
+</p>
+
+<p>
+  <strong>Libswon:</strong>
+  <%= @game.libswon %>
+</p>
+
+<p>
+  <strong>Winmethod:</strong>
+  <%= @game.winmethod %>
+</p>
+
+<p>
+  <strong>Playercount:</strong>
+  <%= @game.playercount %>
+</p>
+
+<p>
+  <strong>Players:</strong>
+  <%= @game.players %>
+</p>
+
+<p>
+  <strong>Turns:</strong>
+  <%= @game.turns %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
