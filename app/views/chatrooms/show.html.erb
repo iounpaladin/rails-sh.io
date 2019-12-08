@@ -1,17 +1,48 @@
-<div class="row col-md-8 col-md-offset-2">
-  <h1><%= @chatroom.topic %></h1>
-
-<div class="panel panel-default">
-  <% if @chatroom.messages.any? %>
-    <div class="panel-body" id="messages">
-      <%= render partial: 'messages/message', collection: @chatroom.messages%>
+<div class="panel panel-default tracks-container sixteen wide column">
+  <section class="tracks">
+    <div class="track-flipper track-flipper-top flipped">
+      <div class="track top-track-front"></div>
+      <div class="track top-track-back"></div>
     </div>
-  <%else%>
-    <div class="panel-body hidden" id="messages">
+    <section class="enactedpolicies-container">
+    </section>
+    <div class="track-flipper track-flipper-bottom flipped">
+      <div class="track bottom-track-front"></div>
+      <div class="track bottom-track-back track1"></div>
     </div>
-  <%end%>
+    <div class="electiontracker fail0"></div>
+  </section>
 </div>
 
+<div style="position:absolute;right: 5%!important; width: 40vw;display:inline; margin-top: -25%;">
+  <h1><%= @chatroom.topic %></h1>
 
-  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
+  <div class="panel panel-default">
+    <% if @chatroom.messages.any? %>
+      <div class="panel-body" id="messages">
+        <%= render partial: 'messages/message', collection: @chatroom.messages, locals: {:game => @chatroom} %>
+      </div>
+    <% else %>
+      <div class="panel-body hidden" id="messages">
+      </div>
+    <% end %>
+  </div>
+
+  <script>
+      const user = "<%= current_user.username %>";
+      const out = document.getElementById("messages");
+      let isScrolledToBottom;
+      out.scrollTop = out.scrollHeight - out.clientHeight;
+      setInterval(function () {
+          isScrolledToBottom = out.scrollHeight - out.clientHeight <= out.scrollTop + 1;
+
+          if (isScrolledToBottom)
+              out.scrollTop = out.scrollHeight - out.clientHeight;
+      }, 500);
+
+      // TODO: add state to load game on reload
+  </script>
+
+
+  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom} %>
 </div>

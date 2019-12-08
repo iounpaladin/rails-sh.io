@@ -10,27 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191205002454) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chatrooms", force: :cascade do |t|
     t.string   "topic"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "slug"
-  end
-
-  create_table "games", force: :cascade do |t|
-    t.string   "title"
-    t.boolean  "libswon"
-    t.string   "winmethod"
-    t.integer  "playercount"
-    t.text     "players"
-    t.text     "turns"
+    t.integer  "faspolicies"
+    t.integer  "libpolicies"
+    t.boolean  "started"
+    t.string   "deck",                     array: true
+    t.string   "discard",                  array: true
+    t.string   "players",                  array: true
+    t.string   "fasboard",                 array: true
+    t.string   "roles",                    array: true
+    t.boolean  "ended"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
   end
 
   create_table "messages", force: :cascade do |t|

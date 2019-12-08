@@ -1,1 +1,18 @@
-<p><strong><%=message.user.username%>:</strong> <%=message.content%></p>
+<% if message.user.username === 'game' %>
+  <p class="system"><%=message.content %></p>
+  <% else %>
+<p class="playername"><strong class="<%=message.user.username%>"><%=message.user.username%></strong>: <%=message.content%></p>
+<script>
+    elo = parseInt("<%= message.user.elo %>");
+
+    if (elo < 1500) {
+        grade = 0;
+    } else if (elo > 2000) {
+        grade = 500 / 5;
+    } else {
+        grade = (elo - 1500) / 5;
+    }
+
+    Array.from(document.getElementsByClassName("<%=message.user.username%>")).forEach(x => {x.classList.remove(...x.classList); x.classList.add("<%=message.user.username%>"); x.classList.add("elo" + grade);});
+</script>
+<% end %>

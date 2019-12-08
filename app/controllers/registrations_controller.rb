@@ -5,7 +5,10 @@ class RegistrationsController < ApplicationController
     @user = User.new
   end
 
-  def create 
+  def create
+    # if user_params[:username] == 'game'
+    #   redirect_to signup_path, flash[:notice] = 'This is a reserved name!'
+    # end
     user = User.new(user_params)
     user.elo = 1600
     user.role = ""

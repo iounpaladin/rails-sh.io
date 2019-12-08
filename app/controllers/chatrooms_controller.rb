@@ -18,6 +18,20 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.new(chatroom_params)
+    @chatroom.deck = Array.new(6) { 'B' } + Array.new(11) { 'R' }
+    @chatroom.deck.shuffle!
+    @chatroom.roles = %w{Liberal Liberal Liberal Fascist Hitler}
+    @chatroom.roles.shuffle!
+    @chatroom.fasboard = %w{nothing nothing peek shot shot end}
+    @chatroom.started = false
+    @chatroom.faspolicies = 0
+    @chatroom.libpolicies = 0
+    @chatroom.discard = []
+    @chatroom.players = []
+    @chatroom.ended = false
+
+    p @chatroom.to_json
+
     if @chatroom.save
       respond_to do |format|
         format.html { redirect_to @chatroom }
