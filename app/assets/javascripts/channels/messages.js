@@ -1,7 +1,6 @@
 App.messages = App.cable.subscriptions.create('MessagesChannel', {
     received: function (data) {
         if (data.custom === 'ignore') {
-            // this is a custom message, do not parse regularly
             return;
         }
 
