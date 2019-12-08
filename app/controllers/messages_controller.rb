@@ -318,7 +318,7 @@ class MessagesController < ApplicationController
     unless ignore
       if message.save
         ActionCable.server.broadcast 'messages',
-                                     message: message.content,
+                                     message: (h message.content),
                                      user: message.user.username,
                                      elo: message.user.elo,
                                      custom: ''
