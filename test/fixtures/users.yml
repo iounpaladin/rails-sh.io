@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: MyString
-  password: MyText
-  role: MyString
+  username: test1
+  password: $argon2id$v=19$m=65536,t=2,p=1$pdWiofusCFGj8Zjb/D7OEw$p9mW/VdMe7p0eI6htDvCftI+hdKQyP1wj97NZRROg/Q
+  role: admin
   elo: 1
 
 two:
-  username: MyString
-  password: MyText
-  role: MyString
+  username: test2
+  password: $argon2id$v=19$m=65536,t=2,p=1$pdWiofusCFGj8Zjb/D7OEw$p9mW/VdMe7p0eI6htDvCftI+hdKQyP1wj97NZRROg/Q
+  role: mod
   elo: 1
