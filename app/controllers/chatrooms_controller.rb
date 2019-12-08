@@ -29,6 +29,14 @@ class ChatroomsController < ApplicationController
     @chatroom.discard = []
     @chatroom.players = []
     @chatroom.ended = false
+    @chatroom.draw = []
+    @chatroom.votes = Array.new(5) { '' }
+    @chatroom.president = 1
+    @chatroom.chancellor = 1
+    @chatroom.tracker = 0
+    @chatroom.prescut = -1
+    @chatroom.chanccut = -1
+    @chatroom.needsvotes = false
 
     p @chatroom.to_json
 

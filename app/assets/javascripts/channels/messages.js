@@ -29,7 +29,13 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
                 x[0].classList.remove("liberal0");
                 x[0].classList.add(`liberal${count}`);
             }, 100);
-        } else if (data.custom && data.custom !== user && data.custom !== 'sit' && data.custom !== 'vote') {
+        } else if (data.custom === 'tracker') {
+            $("#tracker")[0].className = '';
+            $("#tracker")[0].classList.add("fail" + data.message);
+            $("#tracker")[0].classList.add("electiontracker");
+            return;
+        }
+        else if (data.custom && data.custom !== user && data.custom !== 'sit' && data.custom !== 'vote' && data.custom !== 'announcement') {
             return;
         }
 

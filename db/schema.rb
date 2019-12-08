@@ -25,7 +25,15 @@ ActiveRecord::Schema.define(version: 4) do
     t.string   "players",                  array: true
     t.string   "fasboard",                 array: true
     t.string   "roles",                    array: true
+    t.string   "votes",                    array: true
     t.boolean  "ended"
+    t.boolean  "needsvotes"
+    t.string   "draw",                     array: true
+    t.integer  "president"
+    t.integer  "chancellor"
+    t.integer  "tracker"
+    t.integer  "prescut"
+    t.integer  "chanccut"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "slug"

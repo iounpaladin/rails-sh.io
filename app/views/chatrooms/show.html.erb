@@ -8,9 +8,9 @@
     </section>
     <div class="track-flipper track-flipper-bottom flipped">
       <div class="track bottom-track-front"></div>
-      <div class="track bottom-track-back track1"></div>
+      <div class="track bottom-track-back track0"></div>
     </div>
-    <div class="electiontracker fail0"></div>
+    <div class="electiontracker fail0" id="tracker"></div>
   </section>
 </div>
 
@@ -40,7 +40,35 @@
               out.scrollTop = out.scrollHeight - out.clientHeight;
       }, 500);
 
-      // TODO: add state to load game on reload
+      <% if @chatroom.started %>
+      const role = "<%= @chatroom.roles[@chatroom.players.index current_user.username].html_safe %>";
+
+      $("#messages").removeClass('hidden');
+      $("#messages").append(`<p class='system'>Your secret role is ${role}.</p>`);
+
+      <% if %w{Fascist Hitler}.include? @chatroom.roles[@chatroom.players.index current_user.username] %>
+      const teammate = "<%= @chatroom.players[@chatroom.roles.index (%w{Fascist Hitler} - [@chatroom.roles[@chatroom.players.index current_user.username]])[0]] %>";
+      const tr = "<%= (%w{Fascist Hitler} - [@chatroom.roles[@chatroom.players.index current_user.username]])[0].html_safe %>";
+      $("#messages").removeClass('hidden');
+      $("#messages").append(`<p class='system'>Your teammate is ${teammate} (${tr}).</p>`);
+      <% end %>
+      const lp = <%= @chatroom.libpolicies %>;
+      const fp = <%= @chatroom.faspolicies %>;
+
+      for (let i = 0; i < lp; i++) {
+          $(".enactedpolicies-container").append(`<div class="enactedpolicies-card-container flippedY inplace liberal${i + 1}">
+        <div class="enactedpolicies-card front"></div>
+        <div class="enactedpolicies-card back liberal"></div>
+      </div>`);
+      }
+
+      for (let i = 0; i < fp; i++) {
+          $(".enactedpolicies-container").append(`<div class="enactedpolicies-card-container flippedY inplace fascist${i + 1}">
+        <div class="enactedpolicies-card front"></div>
+        <div class="enactedpolicies-card back fascist"></div>
+      </div>`);
+      }
+      <% end %>
   </script>
 
 

@@ -39,6 +39,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    argon2 (2.0.2)
+      ffi (~> 1.9)
+      ffi-compiler (>= 0.1)
     autoprefixer-rails (9.7.3)
       execjs
     bindex (0.8.1)
@@ -60,6 +63,9 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.11.3)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.7.0)
@@ -172,6 +178,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  argon2
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)

@@ -7,4 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 #
-User.create!(:username => "paladin", :password => "", :elo => 1600, :role => "admin")
+
+# this password is "test"
+password = "$argon2id$v=19$m=65536,t=2,p=1$pdWiofusCFGj8Zjb/D7OEw$p9mW/VdMe7p0eI6htDvCftI+hdKQyP1wj97NZRROg/Q"
+User.create!(:username => "paladin", :password => password, :elo => 1600, :role => "admin")
+User.create!(:username => "tester1", :password => password, :elo => 1600, :role => "admin")
+User.create!(:username => "tester2", :password => password, :elo => 1600, :role => "admin")
+User.create!(:username => "tester3", :password => password, :elo => 1600, :role => "admin")
+User.create!(:username => "tester4", :password => password, :elo => 1600, :role => "admin")
