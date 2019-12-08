@@ -7,27 +7,24 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
 
         if (data.custom === 'fasenact') {
             count = /\((\d+)\/\d+\)/.exec(data.message)[1];
-            $(".enactedpolicies-container").append(`<div class="enactedpolicies-card-container flippedY inplace fascist0">
-        <div class="enactedpolicies-card front"></div>
-        <div class="enactedpolicies-card back fascist"></div>
-      </div>`);
+            $(".enactedpolicies-container").append("<div class=\"enactedpolicies-card-container flippedY inplace fascist0\">\n" +
+                "        <div class=\"enactedpolicies-card front\"></div>\n" +
+                "        <div class=\"enactedpolicies-card back fascist\"></div>\n" +
+                "      </div>");
 
             setTimeout(function () {
                 x = $(".fascist0");
                 x[0].classList.remove("fascist0");
-                x[0].classList.add(`fascist${count}`);
+                x[0].classList.add("fascist" + count);
             }, 100);
         } else if (data.custom === 'libenact') {
             count = /\((\d+)\/\d+\)/.exec(data.message)[1];
-            $(".enactedpolicies-container").append(`<div class="enactedpolicies-card-container flippedY inplace liberal0">
-        <div class="enactedpolicies-card front"></div>
-        <div class="enactedpolicies-card back liberal"></div>
-      </div>`);
+            $(".enactedpolicies-container").append("<div class=\"enactedpolicies-card-container flippedY inplace liberal0\">\n        <div class=\"enactedpolicies-card front\"></div>\n        <div class=\"enactedpolicies-card back liberal\"></div>\n      </div>");
 
             setTimeout(function() {
                 x = $(".liberal0");
                 x[0].classList.remove("liberal0");
-                x[0].classList.add(`liberal${count}`);
+                x[0].classList.add("liberal" + count);
             }, 100);
         } else if (data.custom === 'tracker') {
             $("#tracker")[0].className = '';
