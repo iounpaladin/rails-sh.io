@@ -31,7 +31,7 @@ App.messages = App.cable.subscriptions.create('MessagesChannel', {
             $("#tracker")[0].classList.add("electiontracker");
             return;
         }
-        else if (data.custom && data.custom !== user && data.custom !== 'sit' && data.custom !== 'vote' && data.custom !== 'announcement') {
+        else if (data.custom !== '' && data.custom !== user && data.custom !== 'sit' && data.custom !== 'vote' && data.custom !== 'announcement') {
             return;
         }
 
